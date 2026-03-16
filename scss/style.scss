@@ -1,0 +1,271 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  gap: 20px;
+
+  grid-template-areas:
+        "card-1 card-2 card-2 card-3"
+        "card-1 card-2 card-2 card-3"
+        "card-4 card-5 card-6 card-3"
+        "card-4 card-5 card-6 card-7"
+        "card-4 card-8 card-8 card-7"
+        "card-4 card-8 card-8 card-7";
+}
+
+/* Association des classes avec les grid areas */
+.card-1 { grid-area: card-1; }
+.card-2 { grid-area: card-2; }
+.card-3 { grid-area: card-3; }
+.card-4 { grid-area: card-4; }
+.card-5 { grid-area: card-5; }
+.card-6 { grid-area: card-6; }
+.card-7 { grid-area: card-7; }
+.card-8 { grid-area: card-8; }
+
+.card {
+  background: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f0f0f0; /* Pour mieux visualiser le conteneur */
+  padding: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.card-1  {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rosybrown;
+  img {
+    width: 60%;
+    display: block;
+  }
+  h2{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  span{
+    color: hsl(256, 67%, 59%);
+  }
+}
+.card-2{
+  background-color: hsl(256, 67%, 59%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  h2{
+    color: white;
+    font-size: 4rem;
+    width: 70%;
+    span{
+      color: hsl(39, 100%, 71%);
+    }
+  }
+
+  p{
+    color: white;
+    font-size: 1.5rem;
+
+  }
+}
+.card-3{
+  background-color: hsl(254, 88%, 90%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  h2{
+    margin-bottom: 40px;
+  }
+  img{
+    width: 100%;
+  }
+  p{
+    text-align: justify;
+    margin-top: 40px;
+    width: 80%;
+  }
+}
+
+.card-4{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: hsl(39, 100%, 71%);
+  height: 75%;
+  img{
+    width: 100%;
+    display: block;
+  }
+  h2{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+.card-5{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: hsl(31, 66%, 93%);
+
+  height: 60%;
+  img{
+    width: 100%;
+    display: block;
+  }
+  h2{
+    order: 2;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+}
+
+.card-6{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: wheat;
+
+  height: 60%;
+  overflow: hidden;
+  img{
+
+    width: 100%;
+    display: block;
+  }
+  h2{
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+}
+
+
+.card-7{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: hsl(39, 100%, 71%);
+
+  height: 65%;
+  overflow: hidden;
+  img{
+
+    width: 60%;
+    display: block;
+  }
+  h2{
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+}
+
+.card-8{
+  margin-top: -150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(31, 66%, 93%);
+  padding: 30px;
+  height: 100%;
+  overflow: hidden;
+  img{
+    order: 1;
+    width: 40%;
+    display: block;
+  }
+  h2{
+    order: 2;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr; /* Une seule colonne */
+    grid-template-areas:
+      "card-1"
+      "card-2"
+      "card-3"
+      "card-4"
+      "card-5"
+      "card-6"
+      "card-7"
+      "card-8";
+    gap: 15px; /* Espace entre les cartes */
+  }
+
+  /* Optionnel : réinitialiser certains styles qui posent problème */
+  .card {
+    height: auto; /* Annule les hauteurs fixes */
+    margin-top: 0; /* Annule les marges négatives */
+    width: 100%;
+  }
+
+  .card-8 {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column; /* Important : order fonctionne mieux avec column */
+  }
+
+  .card-8 img {
+    order: 1; /* Image après le h2 */
+  }
+
+  .card-8 h2 {
+    order: 2; /* h2 avant l'image */
+  }
+
+  .card-4, .card-5, .card-6, .card-7 {
+    height: auto;
+  }
+  .card img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .card-7{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    img{width: 60%;}
+  }
+
+  .card h2 {
+    font-size: 2rem;
+  }
+}
+
+
+
